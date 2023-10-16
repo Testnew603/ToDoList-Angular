@@ -1,0 +1,60 @@
+<p>
+    ToDo List
+  </p>
+  
+  <div>
+    <button (click)="addTask()">Add Task</button>
+  </div>
+  
+  <div class="task" *ngFor="let task of taskList; let i = index">
+  
+    <div>
+      <span class="title">Task id:</span> {{i +1}}
+  
+      <span class="remove">
+        <button (click)='removeTask(i)'> X</button>
+      </span>
+
+      <span class="edit" *ngIf="task.name && task.description">
+        <button (click)='editTask(i, task.name, task.description)'> E </button>
+      </span>
+    </div>
+  
+  
+    <div class="field-space">
+      <span class="title"> Title:</span>
+      <input [(ngModel)]="task.name" type="text" name="name">
+    </div>
+  
+    <div class="field-space"> 
+      <span class="title"> Description:</span>
+      <input [(ngModel)]="task.description" type="text" name="desc">
+    </div>
+
+    <!-- <div class="field-space"> 
+        <span class="title"> Status:</span>
+        <input [(ngModel)]="task.status" type="text">
+      </div> -->
+
+    <div class="field-space" *ngIf="task.name && task.description">      
+      <span class="title"> Status </span>      
+      <input [(ngModel)]="task.status" type="radio" [value]="true"> Active
+      <input [(ngModel)]="task.status" type="radio" [value]="false"> Not Active
+    </div>
+
+      <!-- <div class="field-space"> 
+        <span class="title"> Priority:</span>
+        <input [(ngModel)]="task.priority" type="text">
+      </div> -->
+    
+      <div class="field-space" *ngIf="task.name && task.description">
+      <span class="title"> Priority:</span>
+      <select [(ngModel)]="task.priority">
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+      </select>
+    </div>  
+  </div>
+
+
+  

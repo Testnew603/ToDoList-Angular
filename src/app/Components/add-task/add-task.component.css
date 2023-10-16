@@ -1,0 +1,19 @@
+.task{
+    padding: 10px;
+
+    .title{
+        float: left;
+        width: 90px;    
+    }
+    .remove{
+        padding-left: 95px;
+    }
+
+    .edit{
+        padding-left: 20px;
+    }
+
+    .field-space{
+        padding: 10px;
+    }
+}
