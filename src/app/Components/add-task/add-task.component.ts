@@ -10,18 +10,20 @@ export class AddTaskComponent implements OnInit {
 
     constructor() { }
     public taskList : TaskModel [] = [];
+    name: string = '';
+    description: string = '';
+    status: boolean = true;
+    priority: string = "primary"
 
   ngOnInit() {
-  }
-    NEW_TASK = {
-    name: "",
-    description: "",
-    status: true,
-    priority: "primary"
-  };
+  }   
 
   addTask(){
-    this.taskList.push({...this.NEW_TASK});
+    this.taskList.push({name:this.name, description:this.description, status:this.status, priority:this.priority});
+    this.name = '';
+    this.description = '';
+    this.status = true;
+    this.priority = "primary"
   }
 
   removeTask(index:number){

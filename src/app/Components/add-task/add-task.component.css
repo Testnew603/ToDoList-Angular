@@ -5,15 +5,26 @@
         float: left;
         width: 90px;    
     }
+
+    .para{
+        padding-left: 20px;
+    }
+
     .remove{
         padding-left: 95px;
     }
 
     .edit{
         padding-left: 20px;
-    }
+    } 
 
     .field-space{
         padding: 10px;
     }
+}
+
+.btn-add{
+        width: 20%;
+        margin-top: 10px;
+        margin-left: 20px;
 }
