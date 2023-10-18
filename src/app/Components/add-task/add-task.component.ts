@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { TaskModel } from 'src/app/Model/task-model';
+import { TaskServiceService } from 'src/app/Services/task-service.service';
 
 @Component({
   selector: 'app-add-task',
@@ -8,7 +9,7 @@ import { TaskModel } from 'src/app/Model/task-model';
 })
 export class AddTaskComponent implements OnInit {
 
-    constructor() { }
+    constructor(private _taskService : TaskServiceService) { }
     public taskList : TaskModel [] = [];
     name: string = '';
     description: string = '';
@@ -16,29 +17,32 @@ export class AddTaskComponent implements OnInit {
     priority: string = "primary"
 
   ngOnInit() {
+    this.taskList = this._taskService.getTaskList()
   }   
 
   addTask(){
-    this.taskList.push({name:this.name, description:this.description, status:this.status, priority:this.priority});
-    this.name = '';
-    this.description = '';
-    this.status = true;
-    this.priority = "primary"
+    this._taskService.addTask({
+        name: this.name
+      , description: this.description
+      , status: this.status
+      , priority: this.priority
+    });
+      this.name = '';
+      this.description = '';
+      this.status = true;
+      this.priority = "primary"           
   }
 
   removeTask(index:number){
-    if(index > -1){
-      this.taskList.splice(index,1);
-    }    
+      this._taskService.removeTask(index);
   }
 
-  editTask(index:number, name:string, description:string){
-    if(index > -1){
-      const editValue: TaskModel = {
-        name: name,
-        description: description
-      };
-      this.taskList[index] = editValue
-    }
-  }
+  editTask(index:number, updatedTask: TaskModel){
+    const newName = window.prompt('Update Name: ',updatedTask.name || '')
+    if(newName != null)
+    updatedTask.name = newName
+  else
+  return;
+
+}
 }

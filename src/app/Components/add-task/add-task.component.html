@@ -38,7 +38,7 @@
       </span>
 
       <span class="edit" *ngIf="task.name && task.description">
-        <button (click)='editTask(i, task.name, task.description)'> E </button>
+        <button (click)='editTask(i, task)'> E </button>
       </span>
     </div>
     
@@ -53,9 +53,6 @@
       <span class="title"> Priority:</span>      
       <p> {{task.priority}} </p></div>
     </div>   
-
-    
-
       
   </div>
 
