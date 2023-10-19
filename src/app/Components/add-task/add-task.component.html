@@ -26,21 +26,17 @@
       </select>
     </div>  
   </div>
-    <button (click)="addTask()" class="btn-add">Add Task</button>
+    <button [routerLink]="['']" (click)="addTask()" class="btn btn-primary btn-add">Add Task</button>
   
-  <div class="task" *ngFor="let task of taskList; let i = index">
+  <!-- <div class="task" *ngFor="let task of taskList;let i = index">
   
     <div>
-      <span class="title">Task id:</span> {{i +1}}
-  
-      <span class="remove">
-        <button (click)='removeTask(i)'> X</button>
-      </span>
+      <span class="title">Task id:</span> {{ i + 1 }}       -->
 
-      <span class="edit" *ngIf="task.name && task.description">
+      <!-- <span class="edit" *ngIf="task.name && task.description">
         <button (click)='editTask(i, task)'> E </button>
-      </span>
-    </div>
+      </span> -->
+    <!-- </div>
     
     <div>
       <div>
@@ -52,9 +48,9 @@
       <div>
       <span class="title"> Priority:</span>      
       <p> {{task.priority}} </p></div>
-    </div>   
+    </div>    -->
       
-  </div>
+  <!-- </div> -->
 
 
   

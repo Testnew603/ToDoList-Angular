@@ -1,0 +1,32 @@
+<!-- HTML Template -->
+<div class="task" *ngFor="let task of taskList; let i = index">
+    <div>
+      <span class="title">Task id:</span>
+      {{ task.id }}
+      <span class="remove">
+        <button (click)="removeTask(i)">X</button>
+      </span>
+      <span class="edit">
+        <a [routerLink]="['/edit-task', task.id]">Edit</a>
+      </span>
+    </div>
+  
+    <div>
+      <div>
+        <span class="title">Title:</span>
+        <p>{{task.name}} </p>
+      </div>
+  
+      <div>
+        <span class="title">Priority:</span>
+        <p>{{ task.priority }}</p>
+      </div>
+    </div>    
+  </div>
+
+  <div>
+    <span class="edit">
+      <a [routerLink]="['/add-task']">Add Task</a>
+    </span>
+  </div>
+  

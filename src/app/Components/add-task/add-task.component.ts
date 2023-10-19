@@ -11,13 +11,14 @@ export class AddTaskComponent implements OnInit {
 
     constructor(private _taskService : TaskServiceService) { }
     public taskList : TaskModel [] = [];
+    id: number = 1;
     name: string = '';
     description: string = '';
     status: boolean = true;
     priority: string = "primary"
 
   ngOnInit() {
-    this.taskList = this._taskService.getTaskList()
+       
   }   
 
   addTask(){
@@ -36,13 +37,4 @@ export class AddTaskComponent implements OnInit {
   removeTask(index:number){
       this._taskService.removeTask(index);
   }
-
-  editTask(index:number, updatedTask: TaskModel){
-    const newName = window.prompt('Update Name: ',updatedTask.name || '')
-    if(newName != null)
-    updatedTask.name = newName
-  else
-  return;
-
-}
 }

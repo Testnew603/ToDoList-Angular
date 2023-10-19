@@ -1,0 +1,33 @@
+
+<div class="task" *ngFor="let task of taskList; let i = index">
+  
+    <div>
+      <span class="title">Task id:</span> {{task.id}}               
+    </div>
+    
+    <div>
+      <div>
+      <span class="title"> Title:</span>  
+      <input [(ngModel)]="task.name" type="text" >             
+      
+    </div>
+  
+    <div class="field-space">      
+      <span class="title"> Status </span>      
+      <input [(ngModel)]="task.status" type="radio" [value]="true"> Active
+      <input [(ngModel)]="task.status" type="radio" [value]="false"> Not Active
+    </div>
+
+    <div class="field-space">
+      <span class="title"> Priority:</span>
+      <select [(ngModel)]="task.priority">
+        <option value="primary">Primary</option>
+        <option value="secondary">Secondary</option>
+      </select>
+    </div>  
+
+     <span class="edit" *ngIf="task.name && task.description">
+        <button [routerLink]="['']" (click)='editTask(i, task)'> UPDATE </button>
+      </span>
+      
+  </div>
